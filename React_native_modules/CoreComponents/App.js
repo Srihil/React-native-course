@@ -1,14 +1,7 @@
 import {
   View,
-  Text,
-  Image,
-  ImageBackground,
-  ScrollView,
-  Pressable,
+  Alert,
   Button,
-  Modal,
-  StatusBar,
-  ActivityIndicator,
 } from "react-native";
 import { useState } from "react";
 
@@ -18,9 +11,19 @@ export default function App() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   return (
     <View style={{ flex: 1, backgroundColor: "plum", padding: 60 }}>
-      <ActivityIndicator />
-      <ActivityIndicator size={"large"}/>
-      <ActivityIndicator size={"large"} color={"midnightblue"} animating={true}/>
+      <Button title="alert" onPress={() =>Alert.alert("Invalid Data!")}/>
+      <Button title="alert 2" onPress={() =>Alert.alert("Invalid Data!", "DOB incorrect")}/>
+      <Button title="alert 3" onPress={() =>Alert.alert("Invalid Data!", "DOB incorrect", [
+        {
+          text: "Cancel",
+          onPress: () => console.log("cancel pressed") ,
+        },
+        {
+          text: "Ok",
+          onPress: () => console.log("Ok pressed"),
+        },
+        
+      ])}/>
     </View>
   );
 }
