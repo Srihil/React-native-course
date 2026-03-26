@@ -8,6 +8,7 @@ import {
   Button,
   Modal,
   StatusBar,
+  ActivityIndicator,
 } from "react-native";
 import { useState } from "react";
 
@@ -17,7 +18,9 @@ export default function App() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   return (
     <View style={{ flex: 1, backgroundColor: "plum", padding: 60 }}>
-      <StatusBar backgroundColor="lightgreen" barStyle={"dark-content"} />
+      <ActivityIndicator />
+      <ActivityIndicator size={"large"}/>
+      <ActivityIndicator size={"large"} color={"midnightblue"} animating={true}/>
     </View>
   );
 }
