@@ -7,6 +7,7 @@ import {
   Pressable,
   Button,
   Modal,
+  StatusBar,
 } from "react-native";
 import { useState } from "react";
 
@@ -16,26 +17,7 @@ export default function App() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   return (
     <View style={{ flex: 1, backgroundColor: "plum", padding: 60 }}>
-      <Button
-        title="press"
-        onPress={() => setIsModalVisible(true)}
-        color="midnightblue"
-      />
-      <Modal
-        visible={isModalVisible}
-        onRequestClose={() => setIsModalVisible(false)}
-        animationType="slide"
-        presentationStyle="formSheet" //only on IOS
-      >
-        <View style={{ flex: 1, backgroundColor: "lightblue", padding: 60 }}>
-          <Text>Modal content</Text>
-          <Button
-            title="close"
-            color="midnightblue"
-            onPress={() => setIsModalVisible(false)}
-          />
-        </View>
-      </Modal>
+      <StatusBar backgroundColor="lightgreen" barStyle={"dark-content"} />
     </View>
   );
 }
