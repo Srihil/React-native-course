@@ -13,7 +13,7 @@ export default function App() {
 
   const squirtleData = {
     name: "Squirtle",
-    image: require("./assets/squirtle.png"), // Replace with the actual image path
+    image: require("./assets/squirtle.png"), 
     type: "Water",
     hp: 44,
     moves: ["Tackle", "Water Gun", "Tail Whip", "Withdraw"],
@@ -22,7 +22,7 @@ export default function App() {
 
   const bulbasaurData = {
     name: "Bulbasaur",
-    image: require("./assets/bulbasaur.png"), // Replace with the actual image path
+    image: require("./assets/bulbasaur.png"), 
     type: "Grass",
     hp: 45,
     moves: ["Tackle", "Vine Whip", "Growl", "Leech Seed"],
@@ -31,7 +31,7 @@ export default function App() {
 
   const pikachuData = {
     name: "Pikachu",
-    image: require("./assets/pikachu.png"), // Replace with the actual image path
+    image: require("./assets/pikachu.png"), 
     type: "Electric",
     hp: 35,
     moves: ["Quick Attack", "Thunderbolt", "Tail Whip", "Growl"],
