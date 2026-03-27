@@ -1,49 +1,47 @@
-import { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, useWindowDimensions, SafeAreaView,Platform } from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 export default function App() {
-  const[dimensions, setDimensions] = useState({
-    window: Dimensions.get("window"),
-  })
-
-  useEffect(() =>{
-    const subscription = Dimensions.addEventListener("change", ({ window }) => {setDimensions({ window });});
-    return () => subscription?.remove();
-  })
-
-  const { window } = dimensions;
-  const windowwidth = window.width;
-  const windowheight = window.height;
+  const windowwidth = useWindowDimensions().width
+  const windowheight = useWindowDimensions().height 
   return (
+    <SafeAreaView style={styles.safeContainer}>
+
+   
     <View style={styles.container}>
-      <View style={[styles.box,
-        {
-          width: windowwidth > 500 ? "70%" : "90%",
-          height: windowheight > 600 ? "60%" : "90%",
-        }
-      ]}>
-        <Text style={{fontSize: windowwidth > 500 ? 50 : 24}}>Welcome!</Text>
+      <View style={styles.box}>
+        <Text style={styles.text}>Welcome!</Text>
       </View>
     </View>
+    </SafeAreaView>
   );
 }
-
-const windowwidth = Dimensions.get("window").width
-const windowheight = Dimensions.get("window").height
 const styles = StyleSheet.create({
+  safeContainer: {
+    flex: 1,
+    backgroundColor: "plum"
+  },
   container: {
     flex: 1,
     backgroundColor: 'plum',
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: Platform.OS === 'android' ? 25 : 0,
   },
   box: {
-    backgroundColor: "lightblue",
-    alignItems: "center",
-    justifyContent: "center",
+    padding: 20,
   },
-  // text: {
-    
-
-  // },
+  text: {
+    ...Platform.select({
+      ios:{
+        color: "purple",
+        fontSize: 24,
+        fontStlye: "italic",
+      },
+      android:{
+        color: "blue",
+        fontSize: 30,
+      }
+    }),
+    fontWeight: "bold",
+    textAlign: "center",
+  },
 });
